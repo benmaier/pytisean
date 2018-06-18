@@ -27,6 +27,8 @@ PREFIXSTR = 'pytisean_temp_'
 # suffix - TISEAN likes .dat
 SUFFIXSTR = '.dat'
 
+BINPATH = os.path.expanduser("~/Library/TISEAN/bin/")
+
 # We will use the present time as a part of the temporary file name
 def strnow():
     """ Return 'now' as a string with hyphenation
@@ -104,6 +106,8 @@ def tiseanio(command, *args, data=None, silent=False, legacy=True):
     # Return values if 'command' (or something else) fails
     res = None
     err_string = 'Something failed!'
+
+    command = os.path.join(BINPATH,command)
 
     workspace = _gen_tmpFolder()
 
